@@ -1,0 +1,193 @@
+---
+title: "Project 2 report-David Tam"
+output:
+  pdf_document: default
+  html_document:
+    df_print: paged
+date: "2023-12-15"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Section 1: ROC curves
+
+For binary classification, it is important to study different methods and compare their performance such that the best classifier can be picked for our prediction of interest. The final goal of this section is to understand the ROC curves and how to compute it. We will use two binary classifiers with a dataset for training and testing. Followed by discussing the concept of confusion matrix, ROC curve and its features.
+
+In this project, Random Forest classifier (RF) and Multinomial Logistic Regression method (LR) are used to train and make predictions. The dataset is found on UC Irvine (webpage: [https://archive.ics.uci.edu/dataset/186/wine+quality](https://archive.ics.uci.edu/dataset/186/wine+quality)). Please note that there are two datasets in the folder but only the white wine dataset (winequality-white.csv) is used in this project. This wine dataset has 4898 observations and it consists of 12 variables where only "quality" is our response variable and others are explanatory:
+```{r prep, include=FALSE, echo = FALSE}
+library(MASS)
+library(pROC)
+library(nnet)
+library(car)
+library(glmnet)
+library(randomForest)
+
+set.seed(67982193)
+options(max.print=100)
+wine <- read.csv("winequality-white.csv", sep=";")
+dim(wine)
+```
+
+```{r data, include=TRUE, echo = TRUE}
+summary(wine)
+```
+We define a wine as "good" or "bad" by using "quality". In this project, a wine is "good" **if quality $\bf{> 6}$**:
+```{r define, include=TRUE, echo = TRUE}
+wine$quality <- ifelse(wine$quality>6,"good","bad")
+wine$quality <- as.factor(wine$quality)
+```
+Now, let's split the dataset into training and test (4098 and 800 observations) set. Also, for the LR method, rescaling for both sets is needed:
+```{r split_scale, include=TRUE, echo = TRUE}
+per <- sample(x = nrow(wine))
+wine.train <- wine[which(per <= 4098),]
+wine.test <- wine[which(per > 4098),]
+rescale <- function(x1, x2) {   # rescaling both sets
+  for (col in 1:ncol(x1)) {
+    a <- min(x2[, col])
+    b <- max(x2[, col])
+    x1[, col] <- (x1[, col] - a) / (b - a)}
+  x1}
+wine.train.resc <- data.frame(cbind(rescale(wine.train[,-12], wine.train[,-12]),
+quality = wine.train$quality))
+wine.test.resc <- data.frame(cbind(rescale(wine.test[,-12], wine.train[,-12]),
+quality = wine.test$quality))
+```
+For the RF classifier, default setting is used ($\sqrt{11} \approx 3$ regressors and 500 trees) to train the models. Predictions on both sets are also shown below:
+```{r maxprint, include=FALSE, echo = FALSE}
+options(max.print=10)
+```
+
+```{r RF, include=TRUE, echo = TRUE}
+fit.rf <- randomForest(quality ~., data = wine.train)   # training via RF method
+pred.train.rf <- predict(fit.rf, newdata = wine.train[, -12])   # prediction on training set
+pred.test.rf <- predict(fit.rf, newdata = wine.test[, -12])   # prediction on test set
+```
+Let's see the prediction errors. As expected, the training error is 0%; and the testing error is at 12%:
+```{r RF_result, include=TRUE, echo = TRUE}
+(lmis.train.rf <- mean(ifelse(pred.train.rf == wine.train$quality, yes = 0, no = 1)))
+(lmis.test.rf <- mean(ifelse(pred.test.rf == wine.test$quality, yes = 0, no = 1)))
+```
+We also know how the numbers allocate within the Observation and Prediction class via confusion matrix:
+```{r RF_result1, include=TRUE, echo = TRUE}
+(rf_table <- table(pred.test.rf, wine.test$quality, dnn = c("Prediction", "Observation")))
+```
+Prediction class shows $25+97 = 122$ wines are predicted as good wines and 97 of them fall into the "good" class in the real life. We can quantify these by using two ratios: The **true positive (TP) and false positive(FP) rate**. The **TP rate** is defined as: for **all positive case** in the True class (Observation), the percentage of cases that is also predicted as "positive". In our case, this will be $\frac{97}{76+97} = \frac{97}{173}=0.561$. On the other hand, the **FP rate** is defined as, for **all negative case** in the True class (Observation), the percentage of cases that is predicted as "positive". In our case it is $\frac{25}{602+25} = \frac{25}{627}=0.04$.
+
+We can also express the predictions for each observation in the test set, in terms of probability:
+```{r RF_result2, include=TRUE, echo = TRUE}
+(pred.test.rf.prob <- predict(fit.rf, newdata = wine.test[, -12], type = "prob"))
+```
+Note that for a default threshold of a binary classifier is 0.5, which means that the decision is made if one class has a probability larger than 50%. It depends on the usage of classification, an inappropriate classification might causes problematic. For example, it is better to classify more patient has heart disease (and provide diagnosis) than miss patient who really has heart disease.
+
+In our case, changing the threshold would change the number of "good" wine prediction. For instance, if we train the model via random forest method with a threshold of 0.8, we expect more wines will be classified as "good". The confusion matrix would become:
+
+```{r RF_82, include=TRUE, echo = TRUE}
+fit.rf82 <- randomForest(quality ~., data = wine.train, cutoff = c(0.8, 0.2))
+pred.test.rf82 <- predict(fit.rf82, newdata = wine.test[, -12])
+(rf_table82 <- table(pred.test.rf82, wine.test$quality, dnn = c("Prediction", "Observation")))
+```
+
+When the threshold is changed, number of case predicted as "True/Positive/Good" (or "False/Negative/Bad") will be changed. By comparing two confusion matrices (threshold = 0.5 and 0.8), it is clear that there is a change in the error rate. Please note that in this project we will use the **default threshold**.
+
+Now we should look at the other model before we visualize result from all models. We use the LR method for training with the rescaled train set prepared. The prediction will be on the rescaled test set as well. For the best performance, the minimum tuning lambda is choosen:
+```{r las_LR, echo = TRUE}
+logit.cv.lr <- cv.glmnet( x = as.matrix(wine.train.resc[, 1:11]), y = wine.train.resc[, 12],
+family = "multinomial")   # training via LR
+lascv.pred.train.lr <- predict(object = logit.cv.lr, type = "class", s = logit.cv.lr$lambda.min, 
+newx = as.matrix(wine.train.resc[, 1:11]))
+lascv.pred.test.lr <- predict(logit.cv.lr, type = "class", s = logit.cv.lr$lambda.min, 
+newx = as.matrix(wine.test.resc[, 1:11]))
+```
+Let's see the training error, testing error, the confusion matrix and probability of prediction for observations:
+```{r las_LR_result, include=TRUE, echo = TRUE}
+(lascvmis.train.lr <- mean(ifelse(lascv.pred.train.lr == wine.train$quality, yes = 0, no = 1)))
+(lascvmis.test.lr <- mean(ifelse(lascv.pred.test.lr == wine.test$quality, yes = 0, no = 1)))
+```
+
+```{r las_LR_result1, include=TRUE, echo = TRUE}
+table(lascv.pred.test.lr, wine.test$quality, dnn = c("Prediction", "Observation"))
+```
+
+```{r las_LR_result2, include=TRUE, echo = TRUE}
+(lascv.pred.test.lr.prob <- predict( logit.cv.lr, type = "response",
+s = logit.cv.lr$lambda.min, newx = as.matrix(wine.test.resc[, 1:11]))[,,1])
+```
+Another tool to see a classifier's performance is the ROC curve. The ROC curve indicates how the TP rate (sensitivity) and FP rate (1- specificity) change by varying the probability threshold in a classifier. Each point at the curve contains TP and FP rate at one threshold. A perfect classifier would have the TP rate $=1$, and the FP rate $=0$. The grey line shown on the plot below means a ROC curve of a random classifier.
+
+For a given threshold, if the TP and FP rate are known, all matrix elements in confusion matrix can be calculated. As a result, the ROC curve captures all confusion matrices for all thresholds. Below is the ROC curves:
+```{r ROC, include = FALSE, echo = FALSE}
+ROC_lr_las <- roc(wine.test$quality, lascv.pred.test.lr.prob[,2])
+ROC_rf <- roc(as.numeric(wine.test$quality), as.numeric(pred.test.rf.prob[,2]))
+```
+
+```{r ROC1, include=TRUE, echo = FALSE}
+plot(ROC_lr_las, col = "red", main = "ROC curve", xlim = c(1,0), legacy.axes = TRUE)
+lines(ROC_rf, col = "blue")
+legend(x = "topleft", legend = c("LASSO_LR", "RF"), lty = c(1, 1), col = c("red", "blue"), lwd = 2)
+```
+The area under the curve (AUC) shows the **overall** performance of a classifier. The closer to 1 for the AUC, the better is the classifier (perfect classifier has an AUC $=1$). For our two models, in general, we can see that random forest indeed performs better (AUC = 0.9199) than the logistic regression (AUC = 0.755):
+```{r ROC2, include=TRUE, echo = TRUE}
+(ROC_lr_las_auc <- auc(ROC_lr_las))
+(ROC_rf_auc <- auc(ROC_rf))
+```
+
+# Section 2: Support Vector Machine (SVM)
+
+Support Vector Machine (SVM) is an classification method that make use of hyperplane. If a dataset is of p variables, all data points can be seen as p-dimensional vectors with (p+1) coefficients. To classify points in a p-dimensional space, a hyperplane, which is a flat affine subspace of (p-1)-dimensions, is defined and used with reasonable bias-variance balancing. Please note that the introduction of SVMs **is only** for binary classification **(as stated in the instruction)**, but the example will be multiclass classfication.
+
+The points (called "support vectors") who lie closet to the decision boundary are used to define the hyperplane; and a margin is set to be the distance between the support vectors (of each class) and the hyperplane. The optimization goal for the classifier is to maximize the margin. Since data is not always easily separable (e.g overlapping of two classes), some misclassification is allowed for better classification in the long run. Also, the data may not always be perfect for linear boundaries. Therefore, enlarging feature space (e.g with quadratic or cubic terms) might be a good choice to address the non-linearity as the hyperplane is linear in the original feature space. With the above ideas in mind, the support vector classifier with margin can be defined as:
+$$y_{i}\left(f(x)\right)=y_{i}\left(\beta_0+\sum_{i \in S} \alpha_{i}K(x,x_i)\right)\ge M(1-\epsilon_{i})$$
+where $y_{i}\in\{-1,1\}$ is the data's class label (side of the boundary/margin). $\beta_0$ and $\alpha_{i}$ are the coefficients for the classifier function. $M$ is the margin and $\epsilon_{i}$ is the slack variable for individual observation to allow misclassification.
+
+The most important thing is the kernel term $K(x,x_{i})$. It quantifies the similarity of two observations. There are many choices of kernel and this would defines the **type** of support vector classifier. For SVMs, non-linear kernels are chosen to address the non-linearity. Common choices are polynomial kernel $K(x_{i},x_{i'})=(1+\sum_{j=1}^p x_{ij}x_{i'j})^d$ (where $d>1$, $d=1$ for support vector classifier) and radial kernel $K(x_{i},x_{i'})=exp(-\gamma\sum_{j=1}^p (x_{ij}-x_{i'j})^2)$.
+
+SVMs are differ from classifiers we have learned. First, SVMs use feature space enlargement technique to handle non-linearity, but classifier such as logistic regression assumes linear relationship between response and explanatory variables. Second, SVMs make decisions with a hyperplane but not a tree structure (decision tree method), nor distribution of training data points (KNN method). Also, SVMs only provide class labels for data points but not probabilities (e.g logistic regression).
+
+SVMs have a lot of advantages, for example, they work well and are effective in high-dimensional space (i.e large number of feature). A typical application is image classification. Also, as mentioned, SVMs handle non-linearity well. The downsides of SVMs is obvious when the dataset is large: the computational cost is high when the feature space is enlarged. Also, choosing appropriate kernel functions to reach the best performance for different datasets can be a tricky task.
+
+Let's use the wheat dataset and class example (Sec11_Nearest_Neighbour_Wheat), and compare the test errors. Note that for SVM, **package e1071** needs to be installed. First let's prepare the data (train and test set): 
+```{r SVM_prepare0, include=FALSE, echo = FALSE}
+library(e1071)
+set.seed(67982193)
+wheat <- read.csv("../Coding Material/Datasets/wheat.csv")
+options(max.print=100)
+summary(wheat)
+wheat
+```
+
+```{r SVM_prepare, include=TRUE, echo = TRUE}
+wheat$type <- as.factor(wheat$type)
+wheat$class <- as.factor(wheat$class)
+wheat$class <- as.numeric((wheat$class))
+wheat <- wheat[, -1]
+perm <- sample(x = nrow(wheat))
+svm.train <- wheat[which(perm <= 200), -1]
+svm.test <- wheat[which(perm > 200), -1]
+```
+
+Let's implement SVMs. We will try both polynomial kernel and radial kernel. Below are their summaries. First is the polynomial kernel:
+```{r SVM_model, include=TRUE, echo = TRUE}
+(svm.fit.poly <- svm(type ~ ., data = svm.train, kernel = "polynomial"))
+```
+For the radial kernel:
+```{r SVM_model2, include=TRUE, echo = TRUE}
+(svm.fit.rad <- svm(type ~ ., data = svm.train, kernel = "radial"))
+```
+Predictions with the same test set:
+```{r SVM_pred, include=TRUE, echo = TRUE}
+pred.svm.poly <- predict(svm.fit.poly, svm.test)
+pred.svm.rad <- predict(svm.fit.rad, svm.test)
+```
+Confusion matrices (Polynomial kernel goes first, followed by radial kernel):
+```{r conf_matrix, include=TRUE, echo = TRUE}
+table(pred.svm.poly, svm.test[, 6], dnn = c("Predicted", "Observed"))
+table(pred.svm.rad, svm.test[, 6], dnn = c("Predicted", "Observed"))
+```
+In the class example, the test errors for kNN method are 0.4666667 (k=1), 0.4933333 (k for minimum CV error) and 0.5066667 (1 SE of minimum validation error). For SVMs, both kernels give (Polynomial kernel goes first, followed by radial kernel):
+```{r SVM_error, include=TRUE, echo = TRUE}
+(er.svm.poly <- mean(ifelse(pred.svm.poly == svm.test[, 6], yes = 0, no = 1)))
+(er.svm.rad <- mean(ifelse(pred.svm.rad == svm.test[, 6], yes = 0, no = 1)))
+```
+In general, SVMs do a better job. It seems like the radial kernel has the same performance (but different confusion matrix) as the kNN when k=1 (best test error for kNN). However, the polynomial kernel does a even better job where the test error is 0.4133333.

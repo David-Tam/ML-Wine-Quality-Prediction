@@ -33,10 +33,21 @@
 
 ![alt text](images/1l.png)
 ![alt text](images/1m.png)
+![alt text](images/cm_rf1.png)
+
 ![alt text](images/1o.png)
+![alt text](images/roc_rf1.png)
+
 ![alt text](images/1p.png)
 ![alt text](images/1q.png)
+![alt text](images/cm_svc1.png)
+
 ![alt text](images/1s.png)
+![alt text](images/roc_svc1.png)
+
 ![alt text](images/1t.png)
+![alt text](images/cm_all1.png)
+
 ![alt text](images/1u.png)
 ![alt text](images/1v.png)
+![alt text](images/roc_all1.png)

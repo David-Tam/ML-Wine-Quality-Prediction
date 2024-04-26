@@ -8,7 +8,7 @@
 ![alt text](images/pie_bad_good_wine.png)
 ![alt text](images/1e.png)
 
-![alt text](images/con_fixed acidity.png)
+![alt text](images/con_fixed_acidity.png)
 
 ![alt text](images/1f.png)
 ![alt text](images/1g.png)

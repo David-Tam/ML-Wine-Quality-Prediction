@@ -9,6 +9,16 @@
 ![alt text](images/1e.png)
 
 ![alt text](images/con_fixed_acidity.png)
+![alt text](images/con_volatile_acidity.png)
+![alt text](images/con_citric_acid.png)
+![alt text](images/con_residual_sugar.png)
+![alt text](images/con_chlorides.png)
+![alt text](images/con_free_sulfur_dioxide.png)
+![alt text](images/con_total_sulfur_dioxide.png)
+![alt text](images/con_density.png)
+![alt text](images/con_pH.png)
+![alt text](images/con_sulphates.png)
+![alt text](images/con_alcohol.png)
 
 ![alt text](images/1f.png)
 ![alt text](images/1g.png)

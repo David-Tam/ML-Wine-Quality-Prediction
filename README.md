@@ -21,10 +21,16 @@
 ![alt text](images/con_alcohol.png)
 
 ![alt text](images/1f.png)
+![alt text](images/cat_quality.png)
+
 ![alt text](images/1g.png)
 ![alt text](images/1h.png)
 ![alt text](images/1i.png)
+![alt text](images/cm_lr1.png)
+
 ![alt text](images/1k.png)
+![alt text](images/roc_lr1.png)
+
 ![alt text](images/1l.png)
 ![alt text](images/1m.png)
 ![alt text](images/1o.png)

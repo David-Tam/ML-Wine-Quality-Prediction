@@ -1,5 +1,7 @@
 # ML-Wine-Quality-Prediction
 
+## 1. Binary Classification
+
 ![alt text](images/1.png)
 ![alt text](images/1a.png)
 ![alt text](images/1b.png)
@@ -47,6 +49,11 @@
 
 ![alt text](images/1t.png)
 ![alt text](images/cm_all1.png)
+
+
+## 2. Multi-class Classification
+
+
 
 ![alt text](images/1u.png)
 ![alt text](images/1v.png)

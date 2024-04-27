@@ -51,10 +51,11 @@
 ![alt text](images/cm_all1.png)
 
 
-## 2. Multi-class Classification
-
-
-
 ![alt text](images/1u.png)
 ![alt text](images/1v.png)
 ![alt text](images/roc_all1.png)
+
+
+
+
+## 2. Multi-class Classification

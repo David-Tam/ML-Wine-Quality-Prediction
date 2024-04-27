@@ -59,3 +59,19 @@
 
 
 ## 2. Multi-class Classification
+
+![alt text](images/2a.png)
+![alt text](images/2b.png)
+![alt text](images/2c.png)
+![alt text](images/2d.png)
+![alt text](images/2e.png)
+![alt text](images/pie_bad_nor_good_wine.png)
+
+![alt text](images/2f.png)
+![alt text](images/2g.png)
+![alt text](images/2h.png)
+![alt text](images/2i.png)
+![alt text](images/cm_all2.png)
+
+
+![alt text](images/2j.png)

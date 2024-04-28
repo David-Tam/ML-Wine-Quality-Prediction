@@ -1,5 +1,5 @@
 # ML-Wine-Quality-Prediction
-This is a machine learning project that aims to classify the good/bad wine base on costumized setting on the wine quality.
+This is a machine learning project of a graduated level course that aims to classify good/bad wine base on costum setting (by the user) on the wine quality. The project was originally finished in R (check it out!) but it was improved and written in python language (shown here).
 
 The description and the datasets can be accessed here:
 
@@ -10,17 +10,17 @@ Please not that only **white** wine data is used here.
 The project will be presented into two parts: 1. Binary classification. 2. Mulitclass Classification
 In general, the structure follows:
 
-**1. Data Access**
+**1. Data Access and threshold setting**
 
 **2. Data Visualization**
    
 **3. Data Preparation**
    
-**4. XGB Classifier**   
+**4. Logistic Regression Approach**   
 
-**5. GBM Classifier**   
+**5. Random Forest Approach**   
 
-**6. ROC curves analysis**
+**6. Support Vector Classifier Approach**
 
 ## 1. Data Access
 First of all, let's load up the dataset. Note that a data point will be droped if there is any missing piece within a client's data.

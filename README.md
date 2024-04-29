@@ -71,10 +71,14 @@ The density, meaning the texture of the wine?
 And the concentration of alcohol:
 ![alt text](images/con_alcohol.png)
 
+The only caterogrical feature is the quality of the wine:
 ![alt text](images/1f.png)
 ![alt text](images/cat_quality.png)
 
+### Data Preparation
 ![alt text](images/1g.png)
+
+## Logistic Regression Approach
 ![alt text](images/1h.png)
 ![alt text](images/1i.png)
 ![alt text](images/cm_lr1.png)

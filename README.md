@@ -32,28 +32,43 @@ One of the feature is "quality" (from 1 to 10, where 10 is perfect) of the wine,
 First of all, we type in a number and set the threshold:
 ![alt text](images/1.png)
 
-Let's say every quality higher than 6 is considered good wine:
+Let's say every quality higher than 6 is considered good wine. Here are all the features:
 ![alt text](images/1a.png)
 
-Let's look at all the features:
+And their statistical information:
 ![alt text](images/1b.png)
 
-And their statistical information:
+Now we apply a new feature "judge" to indicate the wine label. This feature is binary (0 means bad wine and 1 is good wine) and depends on the "quality":
 ![alt text](images/1c.png)
+
+According to the threshold, distributions can be visualized in every features. First of all, let's see how many "bad" and "good" wine via a pie chart:
 ![alt text](images/1d.png)
 ![alt text](images/pie_bad_good_wine.png)
+
+The distributions of continuous features can be visualized via histogram. A for-loop is used to serve the purpose:
 ![alt text](images/1e.png)
 
+For acidity-related features:
 ![alt text](images/con_fixed_acidity.png)
 ![alt text](images/con_volatile_acidity.png)
 ![alt text](images/con_citric_acid.png)
+![alt text](images/con_pH.png)
+
+How sweet is the wine?
 ![alt text](images/con_residual_sugar.png)
+
+How about chlorides?
 ![alt text](images/con_chlorides.png)
+
+The sulphur dioxide features:
 ![alt text](images/con_free_sulfur_dioxide.png)
 ![alt text](images/con_total_sulfur_dioxide.png)
-![alt text](images/con_density.png)
-![alt text](images/con_pH.png)
 ![alt text](images/con_sulphates.png)
+
+The density, meaning the texture of the wine?
+![alt text](images/con_density.png)
+
+And the concentration of alcohol:
 ![alt text](images/con_alcohol.png)
 
 ![alt text](images/1f.png)

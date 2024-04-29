@@ -22,17 +22,23 @@ In general, the structure follows:
 
 **6. Support Vector Classifier Approach**
 
-## 1. Data Access
-First of all, let's load up the dataset. Note that a data point will be droped if there is any missing piece within a client's data.
-
-
-
 
 ## 1. Binary Classification
 
+The feature of this project is returning "good/bad" label for each wine, and the "standard" is set by the user. The reason behind is simply: common people might not be able to quantify the quality for a bottle of wine (like a professonal wine taster!), this might help them to roughly know which wine might fit their need in the future.
+
+One of the feature is "quality" (from 1 to 10, where 10 is perfect) of the wine, we simply set a threshold on this feature to distinguish the label of the wine.
+
+First of all, we type in a number and set the threshold:
 ![alt text](images/1.png)
+
+Let's say every quality higher than 6 is considered good wine:
 ![alt text](images/1a.png)
+
+Let's look at all the features:
 ![alt text](images/1b.png)
+
+And their statistical information:
 ![alt text](images/1c.png)
 ![alt text](images/1d.png)
 ![alt text](images/pie_bad_good_wine.png)

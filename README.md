@@ -1,5 +1,5 @@
 # ML-Wine-Quality-Prediction
-This is a machine learning project of a graduated level course that aims to classify good/bad wine base on costum setting (by the user) on the wine quality. The project was originally finished in R (check it out!) but it was improved and written in python language (shown here).
+This is a project of a graduated level machine learning course that aims to classify good/bad wine base on costum setting (by the user) on the wine quality. The project was originally finished in R (check it out!) but it was improved and written in python language (shown here).
 
 The description and the datasets can be accessed here:
 

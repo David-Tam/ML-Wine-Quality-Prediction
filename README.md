@@ -111,14 +111,19 @@ The ROC curve:
 ![alt text](images/1o.png)
 ![alt text](images/roc_rf1.png)
 
-## Support Vector Classifier Approach
+## Support Vector Classifier (SVC) Approach
 
+The last method is to use Support Vector Classifier with a non-linear boundary. The basic idea is to make use of hyperplane to classify. If a dataset is of p variables, all data points can be seen as p-dimensional vectors with (p+1) coefficients. To classify points in a p-dimensional space, a hyperplane, which is a flat affine subspace of (p-1)-dimensions, is defined and used with reasonable bias-variance balancing.
 
+For this one-vs-one classification, non-linear hyperplane is assumed, and radial kernal is selected for more flexible situation. The gamma is set to be default: $1/(n_features * X.var())$ to prevent overfitting.
 
 ![alt text](images/1p.png)
+
+The confusion matrix shows a zero TP result:
 ![alt text](images/1q.png)
 ![alt text](images/cm_svc1.png)
 
+Below is the ROC curve:
 ![alt text](images/1s.png)
 ![alt text](images/roc_svc1.png)
 

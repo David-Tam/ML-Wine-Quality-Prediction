@@ -99,7 +99,7 @@ And the corresponding ROC curve, which gives us an idea of all confusion matrics
 
 Random Forest approach is the second method for this classification task. The idea of Random Forest method is simply create a set of simple decision trees (or so-called "weak learner"), which each tree is created (with its own fitting) with a subset of parameters within the training set. Each tree is then applied to the testing set and make prediction on all data. For each data, voting from all trees would make a final decision, or classification, for a data point.
 
-1500 trees are created for training and testing and \sqrt{n} features are used for tree creation. Gini impurity is selected as the computational cost is lower than using entropy; and minimum split is 2 for the nodes due to the same reason.
+1500 trees are created for training and testing and $\sqrt{n}$ features are used for tree creation. Gini impurity is selected as the computational cost is lower than using entropy; and minimum split is 2 for the nodes due to the same reason.
 
 ![alt text](images/1l.png)
 

@@ -81,12 +81,22 @@ The whole data set (4898 data point) is assigned a random number (called "sample
 ![alt text](images/1g.png)
 
 ## Logistic Regression Approach
+
+First method attemped is the Logistic Regression (LR), which is quite a common method for binary classification. Since it is not clear how close are the values for each parameter, Ridge Regression is chosen for the regulariztion to prevent overfitting. As this is not too computational expensive, maximum iteration is set to be 1500.
+
+After that the fitting was performed and made a prediction with the test set.
 ![alt text](images/1h.png)
+
+First, let's check the confusion matrix:
 ![alt text](images/1i.png)
 ![alt text](images/cm_lr1.png)
 
+And the corresponding ROC curve, which gives us an idea of all confusion matrics for any probability threshold:
 ![alt text](images/1k.png)
 ![alt text](images/roc_lr1.png)
+
+## Random Forest Approach
+
 
 ![alt text](images/1l.png)
 ![alt text](images/1m.png)

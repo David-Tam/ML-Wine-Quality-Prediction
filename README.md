@@ -76,6 +76,8 @@ The only caterogrical feature is the quality of the wine:
 ![alt text](images/cat_quality.png)
 
 ### Data Preparation
+
+The whole data set (4898 data point) is assigned a random number (called "sample") for data splitting: 4000 for training and 898 for testing. Then, "quality" and "sample" were removed from both sets as they are not used for training and testing.
 ![alt text](images/1g.png)
 
 ## Logistic Regression Approach

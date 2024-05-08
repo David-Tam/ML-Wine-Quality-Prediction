@@ -80,9 +80,9 @@ The only caterogrical feature is the quality of the wine:
 The whole data set (4898 data point) is assigned a random number (called "sample") for data splitting: 4000 for training and 898 for testing. Then, "quality" and "sample" were removed from both sets as they are not used for training and testing.
 ![alt text](images/1g.png)
 
-## Logistic Regression Approach
+## Logistic Regression (LR) Approach
 
-First method attemped is the Logistic Regression (LR), which is quite a common method for binary classification. Since it is not clear how close are the values for each parameter, Ridge Regression is chosen for the regulariztion to prevent overfitting. As this is not too computational expensive, maximum iteration is set to be 1500.
+First method attemped is the Logistic Regression, which is quite a common method for binary classification. Since it is not clear how close are the values for each parameter, Ridge Regression is chosen for the regulariztion to prevent overfitting. As this is not too computational expensive, maximum iteration is set to be 1500.
 
 After that the fitting was performed and made a prediction with the test set.
 ![alt text](images/1h.png)
@@ -95,7 +95,7 @@ And the corresponding ROC curve, which gives us an idea of all confusion matrics
 ![alt text](images/1k.png)
 ![alt text](images/roc_lr1.png)
 
-## Random Forest Approach
+## Random Forest (RF) Approach
 
 Random Forest approach is the second method for this classification task. The idea of Random Forest method is simply create a set of simple decision trees (or so-called "weak learner"), which each tree is created (with its own fitting) with a subset of parameters within the training set. Each tree is then applied to the testing set and make prediction on all data. For each data, voting from all trees would make a final decision, or classification, for a data point.
 
@@ -110,6 +110,10 @@ As per the result, below is the confusion matrix:
 The ROC curve:
 ![alt text](images/1o.png)
 ![alt text](images/roc_rf1.png)
+
+## Support Vector Classifier Approach
+
+
 
 ![alt text](images/1p.png)
 ![alt text](images/1q.png)

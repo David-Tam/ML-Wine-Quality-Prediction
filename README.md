@@ -147,12 +147,21 @@ And it is clear to obseve the comparison with the ROC curves:
 
 # 2. Multi-class Classification
 
-The other attempt 
+The other attempt is to perform multi-class classification with two arbitrary thresholds. That is, we set two boundaries and classify all the wine into "bad", "normal" and "good" category.
 
+Firstly, let's insert the thresholds using the quality. In this example, below 5 are considered as "bad" wine and above 6 are "good" wine. Any wine with quality between (i.e 5 and 6) are "normal" wine.
 ![alt text](images/2a.png)
+
+After inserting the thresholds, a logic gate would apply to check if there is(are) any contradiction(s). For example, the lower threshold cannot have a higher quality than the higher threshold.
 ![alt text](images/2b.png)
+
+Displaying statistical information of the dataset:
 ![alt text](images/2c.png)
+
+Assigning label for each category, according to the thresholds inserted:
 ![alt text](images/2d.png)
+
+Lets have a quick look on the categories with a simple pie chart:
 ![alt text](images/2e.png)
 ![alt text](images/pie_bad_nor_good_wine.png)
 

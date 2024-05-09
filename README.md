@@ -165,7 +165,7 @@ Lets have a quick look on the categories with a simple pie chart:
 ![alt text](images/2e.png)
 ![alt text](images/pie_bad_nor_good_wine.png)
 
-Data splitting into training and testing set:
+Data splitting into training and testing set, the size of both training and test set are the same as before:
 ![alt text](images/2f.png)
 
 The method we used are Logistic Regression and Random Forest, as we see that SVC has similar performance as Logistic Regression and we want to lower the computational cost.
@@ -175,5 +175,5 @@ After training, the prediction on the test set can be shown in the confusion mat
 ![alt text](images/2i.png)
 ![alt text](images/cm_all2.png)
 
-
+Still, we can see that, the Random Forest has the best performance, with ~0.852 of accuracy and ~0.148 error rate:
 ![alt text](images/2j.png)

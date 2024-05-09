@@ -165,9 +165,13 @@ Lets have a quick look on the categories with a simple pie chart:
 ![alt text](images/2e.png)
 ![alt text](images/pie_bad_nor_good_wine.png)
 
+Data splitting into training and testing set:
 ![alt text](images/2f.png)
-![alt text](images/2g.png)
+
+The method we used are Logistic Regression and Random Forest, as we see that SVC has similar performance as Logistic Regression and we want to lower the computational cost.
 ![alt text](images/2h.png)
+
+After training, the prediction on the test set can be shown in the confusion matrics:
 ![alt text](images/2i.png)
 ![alt text](images/cm_all2.png)
 

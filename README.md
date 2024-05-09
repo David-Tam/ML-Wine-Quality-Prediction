@@ -23,7 +23,7 @@ In general, the structure follows:
 **6. Support Vector Classifier Approach**
 
 
-## 1. Binary Classification
+# 1. Binary Classification
 
 The feature of this project is returning "good/bad" label for each wine, and the "standard" is set by the user. The reason behind is simply: common people might not be able to quantify the quality for a bottle of wine (like a professonal wine taster!), this might help them to roughly know which wine might fit their need in the future.
 
@@ -145,7 +145,9 @@ And it is clear to obseve the comparison with the ROC curves:
 
 
 
-## 2. Multi-class Classification
+# 2. Multi-class Classification
+
+The other attempt 
 
 ![alt text](images/2a.png)
 ![alt text](images/2b.png)

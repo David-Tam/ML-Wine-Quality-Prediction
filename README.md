@@ -25,7 +25,7 @@ In general, the structure follows:
 
 # 1. Binary Classification
 
-The feature of this project is returning "good/bad" label for each wine, and the "standard" is set by the user. The reason behind is simply: common people might not be able to judge how good is a bottle of wine by quantifying the all the wine features such as sulphur oxides or different types of acidity (like a professonal wine taster!). However, if a classification model buildup by the user itself, this might help people to roughly know which wine might fit their need, or at least rule out the wine they might not like in the future.
+The feature of this project is returning "good/bad" label for each wine, and the "standard" is set by the user. The reason behind is simply: common people might not be able to judge how good is a bottle of wine by quantifying the all the wine features such as sulphur oxides or different types of acidity (like a professonal wine taster!). However, if a classification model is set up by the user itself, this might help people to roughly know which wine might fit their need, or at least rule out the wine they might not like in the future.
 
 One of the feature is "quality" (from 1 to 10, where 10 is perfect) of the wine, we simply set a threshold on this feature to distinguish the label of the wine.
 

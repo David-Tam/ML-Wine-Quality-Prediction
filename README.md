@@ -7,7 +7,7 @@ The description and the datasets can be accessed here:
 
 https://archive.ics.uci.edu/dataset/186/wine+quality
 
-Please not that only **white** wine data is used here.
+Please note that only **white** wine data is used here.
 
 The project will be presented into two parts: 1. Binary classification. 2. Mulitclass Classification
 In general, the structure follows:

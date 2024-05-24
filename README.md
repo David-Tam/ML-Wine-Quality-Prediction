@@ -34,7 +34,7 @@ One of the feature is "quality" (from 1 to 10, where 10 is perfect) of the wine.
 First of all, let's type in a number and set the threshold:
 ![alt text](images/1.png)
 
-Let's say every quality higher than 6 is considered good wine. Here are all the features:
+In this demonstration, let's set the quality standard as 6, which means every wine higher than 6 is considered good wine. Here are all the features:
 ![alt text](images/1a.png)
 
 And their statistical information:

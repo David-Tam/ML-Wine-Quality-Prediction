@@ -1,5 +1,5 @@
 # ML-Wine-Quality-Prediction
-This is a project of a graduated level machine learning course that aims to classify good/bad wine base on costum setting (by the user) on the wine quality. The reason behind is simple: common people might not be able to judge how good is a bottle of wine by quantifying all the wine features such as sulphur oxides or different types of acidity (like a professonal wine taster!). However, if a classification model is set up by the user itself, this might help people to roughly know which new wine might fit their need, or at least rule out the new wine they might not like in the future.
+This is a project of a graduated level machine learning course that aims to classify good/bad wine base on costum setting (by the user) on the wine quality. The reason behind this is simple: common people might not be able to judge how good is a bottle of wine by quantifying all the wine features such as sulphur oxides or different types of acidity (like a professonal wine taster!). However, if a classification model is set up by the user itself, this might help people to roughly know which new wine might fit their need, or at least rule out the new wine they might not like in the future.
 
 The project was originally finished in R (check it out!) but it was improved and written in python language (shown here).
 

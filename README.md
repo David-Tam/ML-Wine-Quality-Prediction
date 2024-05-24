@@ -1,4 +1,5 @@
 # ML-Wine-Quality-Prediction
+
 This is a project of a graduated level machine learning course that aims to classify good/bad wine base on costum setting (by the user) on the wine quality. The reason behind this is simple: common people might not be able to judge how good is a bottle of wine by quantifying all the wine features such as sulphur oxides or different types of acidity (like a professonal wine taster!). However, if a classification model is set up by the user itself, this might help people to roughly know which new wine might fit their need, or at least rule out the new wine they might not like in the future.
 
 The project was originally finished in R (check it out!) but it was improved and written in python language (shown here).
@@ -34,13 +35,13 @@ One of the feature is "quality" (from 1 to 10, where 10 is perfect) of the wine.
 First of all, let's type in a number and set the threshold:
 ![alt text](images/1.png)
 
-In this demonstration, let's set the quality standard as 6, which means every wine higher than 6 is considered good wine. Here are all the features:
+In this demonstration, we set the quality standard as 6, which means every wine higher than 6 is considered good wine. Here are all the features:
 ![alt text](images/1a.png)
 
 And their statistical information:
 ![alt text](images/1b.png)
 
-Now we apply a new feature "judge" to indicate the wine label. This feature is binary (0 means bad wine and 1 is good wine) and depends on the "quality":
+Now we apply a new feature "judge" to indicate the wine label. This feature is binary (0 = bad wine & 1 = good wine) and depends on the "quality":
 ![alt text](images/1c.png)
 
 According to the threshold, distributions can be visualized in every features. First of all, let's see how many "bad" and "good" wine via a pie chart:

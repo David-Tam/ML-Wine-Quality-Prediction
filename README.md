@@ -1,5 +1,5 @@
 # ML-Wine-Quality-Prediction
-This is a project of a graduated level machine learning course that aims to classify good/bad wine base on costum setting (by the user) on the wine quality. The reason behind is simple: common people might not be able to judge how good is a bottle of wine by quantifying all the wine features such as sulphur oxides or different types of acidity (like a professonal wine taster!). However, if a classification model is set up by the user itself, this might help people to roughly know which wine might fit their need, or at least rule out the wine they might not like in the future.
+This is a project of a graduated level machine learning course that aims to classify good/bad wine base on costum setting (by the user) on the wine quality. The reason behind is simple: common people might not be able to judge how good is a bottle of wine by quantifying all the wine features such as sulphur oxides or different types of acidity (like a professonal wine taster!). However, if a classification model is set up by the user itself, this might help people to roughly know which new wine might fit their need, or at least rule out the new wine they might not like in the future.
 
 The project was originally finished in R (check it out!) but it was improved and written in python language (shown here).
 
@@ -27,11 +27,11 @@ In general, the structure follows:
 
 # 1. Binary Classification
 
-As you can see, we will use different models and see which one performs best. But first we need to access the data based on the user's interest.
+As you can see, we will use different models and see which one performs the best. But first we need to access the data based on the user's interest.
 
-One of the feature is "quality" (from 1 to 10, where 10 is perfect) of the wine, we simply set a threshold on this feature to distinguish the label of the wine.
+One of the feature is "quality" (from 1 to 10, where 10 is perfect) of the wine. Assume that the customer has normal drinking habit and basic knowledge on different wine, he/she may have an idea on what "standard" (i.e quality) he/she is looking for. Simply, the customer can set a threshold on this feature to distinguish the "good/bad" label of the wine.
 
-First of all, we type in a number and set the threshold:
+First of all, let's type in a number and set the threshold:
 ![alt text](images/1.png)
 
 Let's say every quality higher than 6 is considered good wine. Here are all the features:

@@ -100,6 +100,10 @@ Sometimes the probability threshold for each verdict may not be 0.5 (For example
 ![alt text](images/1k.png)
 ![alt text](images/roc_lr1.png)
 
+But in our case, probability threshold is set to be normal (50%), so the confusion matrix above is enough. By looking at the matrix elements, it seems that the Type II error (False Negative) is high.
+
+But please be patient, let's look at other methods.
+
 ## Random Forest (RF) Approach
 
 Random Forest approach is the second method for this classification task. The idea of Random Forest method is simply create a set of simple decision trees (or so-called "weak learner"), which each tree is created (with its own fitting) with a subset of parameters within the training set. Each tree is then applied to the testing set and make prediction on all data. For each data, voting from all trees would make a final decision, or classification, for a data point.

@@ -41,14 +41,14 @@ In this demonstration, we set the quality standard as 6, which means every wine 
 And their statistical information:
 ![alt text](images/1b.png)
 
-Now we apply a new feature "judge" to indicate the wine label. This feature is binary (0 = bad wine & 1 = good wine) and depends on the "quality":
+Now we apply a new feature "judge" to indicate the wine label. This feature is binary (0 = bad wine & 1 = good wine) and it depends on the "quality":
 ![alt text](images/1c.png)
 
 According to the threshold, distributions can be visualized in every features. First of all, let's see how many "bad" and "good" wine via a pie chart:
 ![alt text](images/1d.png)
 ![alt text](images/pie_bad_good_wine.png)
 
-The distributions of continuous features can be visualized via histogram. A for-loop is used to serve the purpose:
+The distributions of continuous features can be visualized via histograms. A for-loop is used to serve the purpose:
 ![alt text](images/1e.png)
 
 For acidity-related features:
@@ -68,7 +68,7 @@ The sulphur dioxide features:
 ![alt text](images/con_total_sulfur_dioxide.png)
 ![alt text](images/con_sulphates.png)
 
-The density, meaning the texture of the wine?
+The density, meaning the texture of the wine:
 ![alt text](images/con_density.png)
 
 And the concentration of alcohol:
@@ -78,7 +78,7 @@ The only caterogrical feature is the quality of the wine:
 ![alt text](images/1f.png)
 ![alt text](images/cat_quality.png)
 
-### Data Preparation
+## Data Preparation
 
 The whole data set (4898 data point) is assigned a random number (called "sample") for data splitting: 4000 for training and 898 for testing. Then, "quality" and "sample" were removed from both sets as they are not used for training and testing.
 ![alt text](images/1g.png)

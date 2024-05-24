@@ -92,11 +92,11 @@ The Logistic Regression is a common method for binary classification. As we want
 After that the fitting was performed, a prediction is made with the test set.
 ![alt text](images/1h.png)
 
-First, let's check the confusion matrix:
+For binary classification, it is convinent to use the confusion matrix to visualize the result:
 ![alt text](images/1i.png)
 ![alt text](images/cm_lr1.png)
 
-And the corresponding ROC curve, which gives us an idea of all confusion matrics for any probability threshold:
+Sometimes the probability threshold for each verdict may not be 0.5 (For example, say over 70% probability then the wine is considered as "good"). The ROC curve, which gives us an idea of all confusion matrics for any probability threshold:
 ![alt text](images/1k.png)
 ![alt text](images/roc_lr1.png)
 

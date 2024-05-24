@@ -80,8 +80,10 @@ The only caterogrical feature is the quality of the wine:
 
 ## Data Preparation
 
-The whole data set (4898 data point) is assigned a random number (called "sample") for data splitting: 4000 for training and 898 for testing. Then, "quality" and "sample" were removed from both sets as they are not used for training and testing.
+Each instance in the dataset (total 4898 instance) is randomly assigned a number (called "sample") for data splitting: 4000 for training and 898 for testing. Also, "quality" and "sample" were removed as they are not used for training and testing.
 ![alt text](images/1g.png)
+
+Now we can start training the models. Let's start with the Logistic Regression Approach.
 
 ## Logistic Regression (LR) Approach
 

@@ -87,9 +87,9 @@ Now we can start training the models. Let's start with the Logistic Regression A
 
 ## Logistic Regression (LR) Approach
 
-First method attemped is the Logistic Regression, which is quite a common method for binary classification. Since it is not clear how close are the values for each parameter, Ridge Regression is chosen for the regulariztion to prevent overfitting. As this is not too computational expensive, maximum iteration is set to be 1500.
+The Logistic Regression is a common method for binary classification. As we want to keep all parameters, Ridge Regression, instead of LASSO, is chosen for the regulariztion to prevent overfitting. Also, the maximum iteration is set to be 1500 since it is not too computational expensive.
 
-After that the fitting was performed and made a prediction with the test set.
+After that the fitting was performed, a prediction is made with the test set.
 ![alt text](images/1h.png)
 
 First, let's check the confusion matrix:

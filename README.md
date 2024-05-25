@@ -155,7 +155,9 @@ And it is clear by observing their ROC curves:
 ![alt text](images/1v.png)
 ![alt text](images/roc_all1.png)
 
-It is obvious that, the RF's ROC curve ($\color{red}$$)
+It is obvious that, the RF's ROC curve (red) is close to the top left corner, which means a perfect classification model.
+
+To conclude,
 
 
 # 2. Multi-class Classification

@@ -157,12 +157,14 @@ And it is clear by observing their ROC curves:
 
 It is obvious that, the RF's ROC curve (red) is close to the top left corner, which means a perfect classification model.
 
-To conclude,
+To conclude, we can see that the RF model gives out the best performance. Now we should move to next stage: Multi-class Classification.
 
 
 # 2. Multi-class Classification
 
-The other attempt is to perform multi-class classification with two arbitrary thresholds. That is, we set two boundaries and classify all the wine into "bad", "normal" and "good" category.
+Of casue, sometimes people may want to choose wine based on their situation. For example, people may purchase different types of wine as gifts for friends and family during Christmas. The multi-class classification would be helpful for this purpose.
+
+In this part, we implant two arbitrary thresholds, that is, two boundaries are set to classify all the wine into "bad", "normal" and "good" category. Of cause, in reality, things can be different. For example, wines can be classified as "cheap", "normal" and "expensive" according to different dataset or variables, such that retailers can set up the price of the wine.
 
 Firstly, let's insert the thresholds using the quality. In this example, below 5 are considered as "bad" wine and above 6 are "good" wine. Any wine with quality between (i.e 5 and 6) are "normal" wine.
 ![alt text](images/2a.png)

@@ -166,7 +166,7 @@ Of casue, sometimes people may want to choose wine based on their situation. For
 
 In this part, we implant two arbitrary thresholds, that is, two boundaries are set to classify all the wine into "bad", "normal" and "good" category. Of cause, in reality, things can be different. For example, wine retailers can set up the price of a new wine wines, by classifying it into: "cheap", "normal" or "expensive" based on the dataset or variables.
 
-Firstly, let's insert the thresholds using the quality. In this example, below 5 are considered as "bad" wine and above 6 are "good" wine. Any wine with quality between (i.e 5 and 6) are "normal" wine.
+Same as before, first step is to insert the thresholds. In this example, "quality" below 5 are considered as "bad" wine and above 6 are "good" wine. Any wine with quality between (i.e 5 and 6) are "normal" wine.
 ![alt text](images/2a.png)
 
 After inserting the thresholds, a logic gate would apply to check if there is(are) any contradiction(s). For example, the lower threshold cannot have a higher quality than the higher threshold.
@@ -175,14 +175,14 @@ After inserting the thresholds, a logic gate would apply to check if there is(ar
 Displaying statistical information of the dataset:
 ![alt text](images/2c.png)
 
-Assigning label for each category, according to the thresholds inserted:
+Labels "0", "1" and "2" for each wine based on the thresholds.
 ![alt text](images/2d.png)
 
-Lets have a quick look on the categories with a simple pie chart:
+Lets have a quick look on the categories with a simple pie chart. About 74.6% of wine are classified as "Normal", 21.6% of them as "Good" and only 3.7% as "Bad".
 ![alt text](images/2e.png)
 ![alt text](images/pie_bad_nor_good_wine.png)
 
-Data splitting into training and testing set, the size of both training and test set are the same as before:
+Splitting the dataset into training and testing set, with the size of both training and test set are the same as before:
 ![alt text](images/2f.png)
 
 The method we used are Logistic Regression and Random Forest, as we see that SVC has similar performance as Logistic Regression and we want to lower the computational cost.

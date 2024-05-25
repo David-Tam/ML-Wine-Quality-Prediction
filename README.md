@@ -140,9 +140,11 @@ And the corresponding ROC curve:
 
 ## Combined results
 
-In order to compare results from the methods, the confusion matrix is shown side-by-side:
+In order to choose the best methods (among three), the confusion matrics are shown side-by-side:
 ![alt text](images/1t.png)
 ![alt text](images/cm_all1.png)
+
+By just looking at the matrics, it seems that Random Forest model obtains a better result, meaning the diagonal elements has more counts than the other two models.
 
 Also, the performance are printed out for comparison. The LR and SVC methods show similar performance: the area under the curve (AUC), prediction accuracy and error rate are ~0.75, ~0.78 and ~0.22.
 

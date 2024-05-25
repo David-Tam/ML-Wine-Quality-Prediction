@@ -185,7 +185,7 @@ Lets have a quick look on the categories with a simple pie chart. About 74.6% of
 Splitting the dataset into training and testing set, with the size of both training and test set are the same as before:
 ![alt text](images/2f.png)
 
-The method we used are Logistic Regression and Random Forest, as we see that SVC has similar performance as Logistic Regression and we want to lower the computational cost.
+The methods used and shown here are Logistic Regression and Random Forest, as we have seen that SVC has similar performance as Logistic Regression and we want to lower the computational cost.
 ![alt text](images/2h.png)
 
 After training, the prediction on the test set can be shown in the confusion matrics:

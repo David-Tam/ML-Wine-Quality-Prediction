@@ -188,9 +188,11 @@ Splitting the dataset into training and testing set, with the size of both train
 The methods used and shown here are Logistic Regression and Random Forest, as we have seen that SVC has similar performance as Logistic Regression and we want to lower the computational cost.
 ![alt text](images/2h.png)
 
-After training, the prediction on the test set can be shown in the confusion matrics:
+After training, the models' prediction on the test set can be shown in the confusion matrics:
 ![alt text](images/2i.png)
 ![alt text](images/cm_all2.png)
 
 Still, we can see that, the Random Forest has the best performance, with ~0.852 of accuracy and ~0.148 error rate:
 ![alt text](images/2j.png)
+
+*******************************************************************************************************

@@ -11,7 +11,8 @@ https://archive.ics.uci.edu/dataset/186/wine+quality
 Please note that only **white** wine data is used here.
 
 The project will be presented into two parts: 1. Binary classification. 2. Mulitclass Classification
-In general, the structure follows:
+
+For each part, in general, the structure follows:
 
 **1. Data Access and threshold setting**
 

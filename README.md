@@ -144,18 +144,18 @@ In order to choose the best methods (among three), the confusion matrics are sho
 ![alt text](images/1t.png)
 ![alt text](images/cm_all1.png)
 
-By just looking at the matrics, it seems that Random Forest model obtains a better result, meaning the diagonal elements has more counts than the other two models.
+By just looking at the matrics, it seems that Random Forest model obtains a better result, meaning the diagonal elements has more counts in RF model than the other two models.
 
-Also, the performance are printed out for comparison. The LR and SVC methods show similar performance: the area under the curve (AUC), prediction accuracy and error rate are ~0.75, ~0.78 and ~0.22.
+Also, their performance is printed out for comparison. The LR and SVC methods show similar performance: the area under the curve (AUC), prediction accuracy and error rate are ~0.75, ~0.78 and ~0.22.
 
 The RF method has the best performance with AUC of ~0.93, prediction accuracy of ~0.87 and error rate of ~0.13.
 ![alt text](images/1u.png)
 
-And it is clear to obseve the comparison with the ROC curves:
+And it is clear by observing their ROC curves:
 ![alt text](images/1v.png)
 ![alt text](images/roc_all1.png)
 
-
+It is obvious that, the RF's ROC curve ($red{Red}$)
 
 
 # 2. Multi-class Classification

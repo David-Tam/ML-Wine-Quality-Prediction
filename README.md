@@ -126,7 +126,7 @@ The confusion matrix shows us that RF does a better job than the LR approach! Ho
 
 The last method is to use Support Vector Classifier with a non-linear boundary. The idea of SVC is to make use of hyperplane for classification. If a dataset contains p variables, all instances can be seen as p-dimensional vectors with (p+1) coefficients. To classify points in a p-dimensional space, a hyperplane, which is a flat affine subspace of (p-1)-dimensions (the feature space), is defined and used with reasonable bias-variance balancing.
 
-For this one-vs-one classification, non-linear hyperplane is assumed, and radial kernal is selected for more flexible situation. The gamma is set to be default: $1/(n_features * X.var())$ to prevent overfitting.
+In our case, this is a one-vs-one classification. A non-linear hyperplane is assumed and radial kernal is selected for more flexible situation. The gamma is set to be default: $1/(n_features * X.var())$ to prevent overfitting.
 
 ![alt text](images/1p.png)
 

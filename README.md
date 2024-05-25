@@ -120,7 +120,7 @@ The ROC curve:
 ![alt text](images/1o.png)
 ![alt text](images/roc_rf1.png)
 
-The confusion matrix shows that RF does a better job than LR approach.
+The confusion matrix shows us that RF does a better job than the LR approach! How about the last approach?
 
 ## Support Vector Classifier (SVC) Approach
 

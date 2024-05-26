@@ -196,4 +196,13 @@ After training, the models' prediction on the test set can be shown in the confu
 Still, we can see that, the Random Forest has the best performance, with ~0.852 of accuracy and ~0.148 error rate:
 ![alt text](images/2j.png)
 
-*******************************************************************************************************
+************************************************************************************************************************
+
+# Conclusion, Business Insight and Improvement
+
+To conclude, this binary/ multi-class classification system can help customer to have a judgement on a new wine. The Random Forest model shows a better result than that of Logistic Regression and Support Vector Classifier.
+
+It is recommended that the classification system should be applied and run with an online ordering system: each client can build their own dataset and the sytem can provide a more accurate recommandation via purchasing.
+
+Furthermore, this classification system, is not bounded to this use. As mentioned, wine retailers can also use the system to help them decide the price of a new wine. Another example would be to help wine producer to decide which wine should be produced and export more, based on the dataset built by the clients.
+

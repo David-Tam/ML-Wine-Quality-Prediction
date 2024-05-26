@@ -204,5 +204,6 @@ To conclude, this binary/ multi-class classification system can help customer to
 
 It is recommended that the classification system should be applied and run with an online ordering system: each client can build their own dataset and the sytem can provide a more accurate recommandation via purchasing.
 
-Furthermore, this classification system, is not bounded to this use. As mentioned, wine retailers can also use the system to help them decide the price of a new wine. Another example would be to help wine producer to decide which wine should be produced and export more, based on the dataset built by the clients.
+Furthermore, this classification system, is not bounded to this use. As mentioned, wine retailers can also use the system to help them decide the price of a new wine. Another example would be to help wine producers to decide which wine should be produced and export more, based on the dataset built by their clients.
 
+This classifier can be improved and designed with using different types of wine, instead of using single wine type. Since wine types are produced differently, the number of features we used here should be expanded. Also, as the chemical contents might be different for different types (for example, sulphur dioxide of red wine might be higher than that of beer), proper scaling and statistical method might be needed to pre-process the dataset before model training.
